@@ -1,0 +1,63 @@
+﻿@model Company
+<form method="post" asp-action="Upsert">
+    <input asp-for="Id" hidden/>
+    <div class="row">
+        <div class="col-12">
+            <div class="border p-3 mt-4 row">
+                <div class="row pb-2">
+                    <h2 class="text-primary">@(Model.Id != 0 ? "Update" : "Create") Company</h2>
+                    <hr />
+                </div>
+                @*<div asp-validation-summary="All" class="text-danger"></div>*@
+                <div class="mb-3 col-6">
+                    <label asp-for="Name"></label> <br />
+                    <input asp-for="Name" class="form-control w-100" />
+                    <span asp-validation-for="Name" class="text-danger d-block"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="StreetAddress"></label> <br />
+                    <input asp-for="StreetAddress" class="form-control w-100" />
+                    <span asp-validation-for="StreetAddress" class="text-danger d-block"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="City"></label> <br />
+                    <input asp-for="City" class="form-control w-100" />
+                    <span asp-validation-for="City" class="text-danger d-block"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="State"></label> <br />
+                    <input asp-for="State" class="form-control w-100" />
+                    <span asp-validation-for="State" class="text-danger d-block"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="PostalCode"></label> <br />
+                    <input asp-for="PostalCode" class="form-control w-100" />
+                    <span asp-validation-for="PostalCode" class="text-danger d-block"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="PhoneNumber"></label> <br />
+                    <input asp-for="PhoneNumber" class="form-control w-100" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger d-block"></span>
+                </div>
+                
+                <div class="col-12">
+                    @if (Model.Id != 0)
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px">Edit</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+                    }
+                    <a asp-controller="Company" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+      <partial name="_ValidationScriptsPartial" />
+}
+
